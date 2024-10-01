@@ -1,7 +1,7 @@
-import videos from "../../json/videos.json";
+
 import Item from "../Item";
 
-function Grid() {
+function Grid({ videos }) {
     const categorias = {};
 
     videos.forEach((video) => {

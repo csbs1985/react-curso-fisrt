@@ -32,7 +32,5 @@ export function useFavoriteContext() {
     }
 
 
-    return {
-        favorite, addFavorite
-    }
+    return { favorite, addFavorite };
 }

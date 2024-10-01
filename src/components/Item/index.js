@@ -3,17 +3,16 @@ import { useFavoriteContext } from "../../contexts/favorites";
 
 function Item({ video }) {
     const { favorite, addFavorite } = useFavoriteContext();
-    const idVideo = video.id;
-    const isFavorite = favorite.some((item) => item.id === idVideo);
+    const isFavorite = favorite.some((item) => item.id === video.id);
     const iconColor = isFavorite ? "#FF0000" : "#a6a6a6";
 
     return (
         <article className="flex flex-col gap-2">
-            <Link to={`/watch/${idVideo}`} key={idVideo}>
+            <Link to={`/watch/${video.id}`} key={video.id}>
                 <figure>
                     <img
                         className="rounded-md"
-                        src={`https://img.youtube.com/vi/${idVideo}/mqdefault.jpg`}
+                        src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
                         alt={video.titulo} />
                 </figure>
             </Link>
@@ -27,7 +26,7 @@ function Item({ video }) {
 
                 <figure>
                     <svg
-                        onClick={() => addFavorite({ idVideo })}
+                        onClick={() => addFavorite(video)}
                         xmlns="http://www.w3.org/2000/svg"
                         fill={iconColor}
                         stroke="none"

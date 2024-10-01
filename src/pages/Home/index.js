@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Banner from "../../components/Banner";
 import Grid from "../../components/Grid";
+import videos from "../../json/videos.json";
 
 function Home() {
     return (
@@ -9,7 +10,7 @@ function Home() {
                 <Banner />
             </Link>
 
-            <Grid />
+            <Grid videos={videos} />
         </section>
     );
 }
