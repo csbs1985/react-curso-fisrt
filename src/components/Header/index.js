@@ -13,7 +13,7 @@ function Header() {
 
             <nav className="flex gap-8 items-center">
                 <input
-                    className="w-80 h-8 rounded-lg px-2 bg-gray-700 text-white"
+                    className="w-60 h-8 rounded-lg px-2 bg-gray-700 text-white"
                     placeholder="Pesquisar"
                     onChange={(e) => changeSearch(e)} />
 
@@ -23,6 +23,10 @@ function Header() {
 
                 <Link to="/favorites">
                     <p className="text-white uppercase">Favoritos</p>
+                </Link>
+
+                <Link to="/register">
+                    <p className="text-white uppercase">Cadastrar</p>
                 </Link>
             </nav>
         </header>

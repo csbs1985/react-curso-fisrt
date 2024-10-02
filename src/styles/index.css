@@ -3,3 +3,6 @@
 @tailwind utilities;
 
 @import '_reset.scss';
+
+@import '_button.scss';
+@import '_form.scss';
