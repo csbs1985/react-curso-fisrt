@@ -1,15 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Item from '../../components/Item';
+import { useEffect, useState } from 'react';
+import Grid from '../../components/Grid';
+import { useSearchContext } from '../../contexts/search';
 import videos from '../../json/videos.json';
-
-const SearchContext = React.createContext();
 
 function filterVideos(videos, search) {
     return videos.filter((video) => video.categoria.includes(search) || video.titulo.includes(search));
 }
 
 function Search() {
-    const search = useContext(SearchContext);
+    const { search } = useSearchContext();
     const [foundVideos, setFoundVideos] = useState([]);
 
     useEffect(() => {
@@ -18,11 +17,13 @@ function Search() {
     }, [search]);
 
     return (
-        <section className="flex gap-8 m-auto w-full max-w-[1280px] flex-wrap p-8">
-            {foundVideos.map((video) => <div key={video.id} className='basis-1/6 flex-1'>
-                <Item video={video} />
-            </div>
-            )}
+        <section className="flex m-auto w-full max-w-[1280px] flex-wrap p-8">
+            <h2 className="font-bold text-3xl m-8">
+                <span className='font-bold text-3xl opacity-60'>{foundVideos.length} Resultado(s) para </span>
+                {search.toUpperCase()}
+            </h2>
+
+            <Grid videos={foundVideos} />
         </section>
     )
 }

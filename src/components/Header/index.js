@@ -1,18 +1,9 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
-const SearchContext = React.createContext();
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSearchContext } from "../../contexts/search";
 
 function Header() {
-    const [search, setSearch] = useState("");
-    const navigate = useNavigate();
-
-    function verifyRoute(event) {
-        const query = event.target.value;
-
-        query === "" ? navigate('/') : navigate('/search');
-        setSearch(query);
-    }
+    const { changeSearch } = useSearchContext();
 
     return (
         <header className="w-screen h-16 bg-black p-4 flex justify-between">
@@ -21,9 +12,10 @@ function Header() {
             </Link>
 
             <nav className="flex gap-8 items-center">
-                <SearchContext.Provider value={{ search, setSearch }}>
-                    <input className="w-80 h-8 rounded-lg px-2 bg-gray-700 text-white" placeholder="Pesquisar" onChange={verifyRoute} />
-                </SearchContext.Provider>
+                <input
+                    className="w-80 h-8 rounded-lg px-2 bg-gray-700 text-white"
+                    placeholder="Pesquisar"
+                    onChange={(e) => changeSearch(e)} />
 
                 <Link to="/">
                     <p className="text-white uppercase">Inicio</p>
