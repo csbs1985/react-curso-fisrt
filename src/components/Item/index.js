@@ -7,7 +7,7 @@ function Item({ video }) {
     const iconColor = isFavorite ? "#FF0000" : "#a6a6a6";
 
     return (
-        <article className="flex flex-col gap-2 basis-1/6">
+        <article className="flex flex-col gap-2">
             <Link to={`/watch/${video.id}`} key={video.id}>
                 <figure>
                     <img

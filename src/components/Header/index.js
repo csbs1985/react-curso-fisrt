@@ -6,7 +6,7 @@ function Header() {
     const { changeSearch } = useSearchContext();
 
     return (
-        <header className="w-screen h-16 bg-black p-4 flex justify-between">
+        <header className="w-full h-16 bg-black p-4 flex justify-between">
             <Link to="/">
                 <h1 className="text-red-600 text-2xl font-bold">Flix</h1>
             </Link>
